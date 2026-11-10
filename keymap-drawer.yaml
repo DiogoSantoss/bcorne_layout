@@ -1,6 +1,27 @@
 parse_config:
   trans_legend: {t: "▽", type: trans}
   qmk_keycode_map:
+    KC_1: {t: "1", s: "!"}
+    KC_2: {t: "2", s: "@"}
+    KC_3: {t: "3", s: "#"}
+    KC_4: {t: "4", s: "$"}
+    KC_5: {t: "5", s: "%"}
+    KC_6: {t: "6", s: "^"}
+    KC_7: {t: "7", s: "&"}
+    KC_8: {t: "8", s: "*"}
+    KC_9: {t: "9", s: "("}
+    KC_0: {t: "0", s: ")"}
+    KC_COMMA: {t: ",", s: "<"}
+    KC_DOT: {t: ".", s: ">"}
+    KC_SLASH: {t: "/", s: "?"}
+    KC_BSLS: {t: "\\", s: "|"}
+    KC_SCLN: {t: ";", s: ":"}
+    KC_QUOTE: {t: "'", s: "\""}
+    KC_GRAVE: {t: "`", s: "~"}
+    KC_MINUS: {t: "-", s: "_"}
+    KC_EQUAL: {t: "=", s: "+"}
+    KC_LBRC: {t: "[", s: "{"}
+    KC_RBRC: {t: "]", s: "}"}
     KC_ESCAPE: Esc
     KC_TAB: Tab
     KC_LCTL: Ctrl
@@ -20,17 +41,6 @@ parse_config:
     KC_DOWN: ↓
     KC_LEFT: ←
     KC_RIGHT: →
-    KC_COMMA: ","
-    KC_DOT: "."
-    KC_SLASH: /
-    KC_BSLS: \
-    KC_SCLN: ;
-    KC_QUOTE: "'"
-    KC_GRAVE: "`"
-    KC_MINUS: "-"
-    KC_EQUAL: "="
-    KC_LBRC: "["
-    KC_RBRC: "]"
     LSFT(KC_LBRC): "{"
     LSFT(KC_RBRC): "}"
     KC_MUTE: Mute

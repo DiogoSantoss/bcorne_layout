@@ -14,7 +14,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 QMK_DIR = Path(os.environ.get("QMK_DIR", Path.home() / "dev" / "qmk"))
 KEYBOARD_JSON = QMK_DIR / "ymdk-BCorne_M57-RGB" / "m57_bcorne" / "keyboard.json"
-LAYER_NAMES = ["Base", "Sym", "Nav", "Base2", "L4", "L5", "L6", "L7", "L8", "L9"]
+LAYER_NAMES = [f"Layer {i}" for i in range(10)]
 
 # LAYOUT() argument order as [row, col] matrix positions (from m57_bcorne/keyboard.json).
 LAYOUT_ORDER = [
