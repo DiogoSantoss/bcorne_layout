@@ -6,6 +6,7 @@ Usage: ./vil2keymap.py [layouts/current.vil]
 """
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -104,6 +105,18 @@ def warn_unsupported(vil):
             print(f"warning: {n} {field} entries are not converted; port them by hand", file=sys.stderr)
 
 
+def drop_unreachable_layers(vil):
+    """Keep layers 0..N, where N is the highest layer any key can switch to."""
+    codes = [k for layer in vil["layout"] for row in layer for k in row if isinstance(k, str)]
+    codes += [k for layer in vil["encoder_layout"] for enc in layer for k in enc]
+    targets = [int(m.group(1)) for k in codes if (m := re.search(r"^(?:MO|TG|TO|TT|DF|OSL|LT\d*|LM)\((\d+)", k))]
+    last = max(targets, default=0)
+    if last + 1 < len(vil["layout"]):
+        print(f"dropping layers {last + 1}-{len(vil['layout']) - 1}: no key switches to them", file=sys.stderr)
+    vil["layout"] = vil["layout"][:last + 1]
+    vil["encoder_layout"] = vil["encoder_layout"][:last + 1]
+
+
 def write_keymap(vil, source):
     layers = ",\n\n".join(format_layer(i, l) for i, l in enumerate(vil["layout"]))
     out = HERE / "keymap.c"
@@ -143,6 +156,7 @@ def main():
     source = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "layouts" / "current.vil"
     vil = json.loads(source.read_text())
     warn_unsupported(vil)
+    drop_unreachable_layers(vil)
     write_keymap(vil, source)
     draw(vil)
 
