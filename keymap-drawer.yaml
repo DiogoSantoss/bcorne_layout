@@ -1,0 +1,44 @@
+parse_config:
+  trans_legend: {t: "▽", type: trans}
+  qmk_keycode_map:
+    KC_ESCAPE: Esc
+    KC_TAB: Tab
+    KC_LCTL: Ctrl
+    KC_RCTL: Ctrl
+    KC_LSFT: Shift
+    KC_RSFT: Shift
+    KC_LALT: Alt
+    KC_RALT: Alt
+    KC_LGUI: Cmd
+    KC_RGUI: Cmd
+    KC_CAPS: Caps
+    KC_SPACE: Space
+    KC_ENTER: Enter
+    KC_BSPC: ⌫
+    KC_DELETE: Del
+    KC_UP: ↑
+    KC_DOWN: ↓
+    KC_LEFT: ←
+    KC_RIGHT: →
+    KC_COMMA: ","
+    KC_DOT: "."
+    KC_SLASH: /
+    KC_BSLS: \
+    KC_SCLN: ;
+    KC_QUOTE: "'"
+    KC_GRAVE: "`"
+    KC_MINUS: "-"
+    KC_EQUAL: "="
+    KC_LBRC: "["
+    KC_RBRC: "]"
+    LSFT(KC_LBRC): "{"
+    LSFT(KC_RBRC): "}"
+    KC_MUTE: Mute
+    RGB_MOD: RGB+
+    RGB_RMOD: RGB-
+    RGB_TOG: RGB
+    QK_BOOT: Boot
+    EE_CLR: Reset
+draw_config:
+  key_h: 56
+  key_w: 60
